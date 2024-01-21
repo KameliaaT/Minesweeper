@@ -385,7 +385,8 @@ void playMinesweeper(char toPrint[MAX_SIZE][MAX_SIZE], char minesBoard[MAX_SIZE]
         }
         if (!gameOver)
         {
-           
+           cout << "Moves left: " << movesLeft << endl;
+           cout<<"In case you have for example one move left and only mines left on board, just mark all of the mines"<<endl;
         }
     }
 }
