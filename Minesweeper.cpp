@@ -46,33 +46,12 @@ bool isValidCountOfMines(unsigned int size, unsigned int minesCount)
 {
     return minesCount >= 1 && minesCount <= 3 * size;
 }
-//i do not know if i am allowed to use that function, but it wokrs way more faster than the one below.
-//std::random_device rd; : Creates a random_device object, which is a source of 
-// non - deterministic random numbers.It is used to obtain a seed for the random number generator.
-//
-//std::mt19937 gen(rd()); : Creates a Mersenne Twister engine(std::mt19937) with 
-// the seed obtained from the random_device.The Mersenne Twister is a high - quality pseudo - 
-// random number generator.
-//
-//std::uniform_int_distribution<> dis(0, size - 1); : Creates a uniform distribution object
-//for generating random integers.In this case, it is configured to generate integers in the range[0, size - 1].
+
 void generateRandom(unsigned int& row, unsigned int& column, unsigned int size)
 {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0, size - 1);
-
-    row = dis(gen);
-    column = dis(gen);
-} 
-// This is the initial function , that i used , but when the mines are more than three, it generates them too slow.
-// However, it still works right.
-//void generateRandom(unsigned int& row, unsigned int& column, unsigned int size)
-//{
-//    srand(static_cast<unsigned>(time(0)));
-//    row = rand() % size;
-//    column = rand() % size;
-//}
+   row = rand() % size;
+   column = rand() % size;
+}
 
 void gameStartMessages()
 {
@@ -417,6 +396,7 @@ void play(char toPrint[MAX_SIZE][MAX_SIZE], char minesBoard[MAX_SIZE][MAX_SIZE])
 
 int main()
 {
+     srand((time(0)));
 
     char toPrint[MAX_SIZE][MAX_SIZE], minesBoard[MAX_SIZE][MAX_SIZE];
     play(toPrint, minesBoard);
