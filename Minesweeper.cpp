@@ -1,3 +1,17 @@
+/**
+*
+* Solution to course project # <5>
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Kamelia Todorova
+* @idnumber 3MI0600212
+* @compiler VC
+*
+* Minesweeper
+*
+*/
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
