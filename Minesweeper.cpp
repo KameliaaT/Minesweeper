@@ -49,8 +49,8 @@ bool isValidCountOfMines(unsigned int size, unsigned int minesCount)
 
 void generateRandom(unsigned int& row, unsigned int& column, unsigned int size)
 {
-   row = rand() % size;
-   column = rand() % size;
+    row = rand() % size;
+    column = rand() % size;
 }
 
 void gameStartMessages()
@@ -221,7 +221,7 @@ int countOpened(char toPrint[MAX_SIZE][MAX_SIZE], int& previousOpenedCount)
     }
 
     int newlyOpened = count - previousOpenedCount;
-    previousOpenedCount = count;  
+    previousOpenedCount = count;
 
     return newlyOpened;
 }
@@ -239,6 +239,11 @@ int openCell(char toPrint[MAX_SIZE][MAX_SIZE], char minesBoard[MAX_SIZE][MAX_SIZ
         cout << "Game Over! You hit a mine." << endl;
         toPrint[x][y] = MINE;
         return true;
+    }
+    if (toPrint[x][y] != NOT_OPEN)
+    {
+        cout << "You have already opened this cell.";
+        return false;
     }
     else
     {
@@ -378,8 +383,8 @@ void playMinesweeper(char toPrint[MAX_SIZE][MAX_SIZE], char minesBoard[MAX_SIZE]
         }
         if (!gameOver)
         {
-           cout << "Moves left: " << movesLeft << endl;
-           cout<<"In case you have for example one move left and only mines left on board, just mark all of the mines"<<endl;
+            cout << "Moves left: " << movesLeft << endl;
+            cout << "In case you have for example one move left and only mines left on board and the games is not over,just mark all of the mines" << endl;
         }
     }
 }
@@ -396,7 +401,7 @@ void play(char toPrint[MAX_SIZE][MAX_SIZE], char minesBoard[MAX_SIZE][MAX_SIZE])
 
 int main()
 {
-     srand((time(0)));
+    srand((time(0)));
 
     char toPrint[MAX_SIZE][MAX_SIZE], minesBoard[MAX_SIZE][MAX_SIZE];
     play(toPrint, minesBoard);
